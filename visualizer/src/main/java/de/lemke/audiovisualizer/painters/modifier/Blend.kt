@@ -1,0 +1,25 @@
+package de.lemke.audiovisualizer.painters.modifier
+
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import de.lemke.audiovisualizer.painters.Painter
+import de.lemke.audiovisualizer.utils.VisualizerHelper
+
+class Blend(val src: Painter, val dst: Painter) : Painter() {
+    override var paint = Paint()
+
+    override fun calc(helper: VisualizerHelper) {
+        src.calc(helper)
+        dst.calc(helper)
+    }
+
+    override fun draw(canvas: Canvas, helper: VisualizerHelper) {
+        canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), paint)
+        dst.apply { paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN) }
+        src.draw(canvas, helper)
+        dst.draw(canvas, helper)
+        canvas.restore()
+    }
+}
