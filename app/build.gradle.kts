@@ -10,11 +10,11 @@ val releaseKeyPassword: String? by rootProject
 
 android {
     namespace = "de.lemke.audiovisualizerdemo"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "de.lemke.visualizerdemo"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }

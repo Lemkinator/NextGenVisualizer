@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "de.lemke.audiovisualizer"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
